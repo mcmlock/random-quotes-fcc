@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+}
+
+#quote-box {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 70px;
+}
+.quote-block {
+    display: flex;
+    flex-direction: row;
+}
+.startQuotation {
+    align-self: flex-start;
+}
+#text {
+    align-self: center;
+}
+.endQuotation {
+    align-self: flex-end;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 const newQuote = require('super-random-quotes/app');
+const getColorPair = require("random-color-pair");
 
 class App extends React.Component {
     constructor(props) {
@@ -7,7 +8,9 @@ class App extends React.Component {
 
         this.state = {
             quote: "It isn't where you came from. It's where you're going that counts.",
-            author: "Ella Fitzgerald"
+            author: "Ella Fitzgerald",
+            fgColor: '#000000',
+            bgColor: '#ffffff'
         }
         this.newQuoteClicked = this.newQuoteClicked.bind(this);
     }
@@ -16,22 +19,32 @@ class App extends React.Component {
         const newQuoteFull = newQuote.getRandomQuote().split(' ~ ');
         const newQuoteText = newQuoteFull[0];
         const newQuoteAuthor = newQuoteFull[1];
+        const [foregroundColor, backgroundColor] = getColorPair();
         this.setState({
             quote: newQuoteText,
-            author: newQuoteAuthor
+            author: newQuoteAuthor,
+            fgColor: `${foregroundColor}`,
+            bgColor: `${backgroundColor}`
         });
+        console.log(this.state.fgColor);
     }
 
     render() {
+        const foregroundElement = {
+            color: this.state.fgColor,
+        }
+        const backgroundElement = {
+            backgroundColor: this.state.bgColor,
+        }
         return (
-            <div id="quote-box">
+            <div id="quote-box" style={backgroundElement}>
                 <h1>Take a Dose of Inspiration</h1>
                 <div>
-                    <div>
-                        <p id="text"><span>"</span>{this.state.quote}<span>"</span></p>
+                    <div className="quote-block">
+                    <span className='startQuotation'>"</span><p id="text">{this.state.quote}</p><span className='endQuotation'>"</span>
                     </div>
                 </div>
-                <p id="author">{this.state.author}</p>
+                <p id="author">~ {this.state.author}</p>
                 <div>
                     <div>
                         <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">Tweet</a>
