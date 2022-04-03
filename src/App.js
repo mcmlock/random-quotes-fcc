@@ -15,6 +15,14 @@ class App extends React.Component {
         this.newQuoteClicked = this.newQuoteClicked.bind(this);
     }
 
+    componentDidMount() {
+        const [foregroundColor, backgroundColor] = getColorPair();
+        this.setState({
+            fgColor: `${foregroundColor}`,
+            bgColor: `${backgroundColor}`
+        });
+    }
+
     newQuoteClicked() {
         const newQuoteFull = newQuote.getRandomQuote().split(' ~ ');
         const newQuoteText = newQuoteFull[0];
@@ -26,7 +34,6 @@ class App extends React.Component {
             fgColor: `${foregroundColor}`,
             bgColor: `${backgroundColor}`
         });
-        console.log(this.state.fgColor);
     }
 
     render() {
@@ -38,18 +45,18 @@ class App extends React.Component {
         }
         return (
             <div id="quote-box" style={backgroundElement}>
-                <h1>Take a Dose of Inspiration</h1>
+                <h1 style={foregroundElement}>Take a Dose of Inspiration</h1>
                 <div>
                     <div className="quote-block">
-                    <span className='startQuotation'>"</span><p id="text">{this.state.quote}</p><span className='endQuotation'>"</span>
+                        <span style={foregroundElement} className='startQuotation'>"</span><p style={foregroundElement} id="text">{this.state.quote}</p><span style={foregroundElement} className='endQuotation'>"</span>
                     </div>
                 </div>
-                <p id="author">~ {this.state.author}</p>
+                <p style={foregroundElement} id="author">~ {this.state.author}</p>
                 <div>
                     <div>
-                        <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">Tweet</a>
+                        <a style={foregroundElement} id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">Tweet</a>
                     </div>
-                    <div onClick={this.newQuoteClicked} id="new-quote">New Quote</div>
+                    <div onClick={this.newQuoteClicked} style={foregroundElement} id="new-quote">New Quote</div>
                 </div>
             </div>
         );
