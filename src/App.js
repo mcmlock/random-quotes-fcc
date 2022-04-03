@@ -1,5 +1,5 @@
 import React from 'react';
-const quote = require('super-random-quotes/app');
+const newQuote = require('super-random-quotes/app');
 
 class App extends React.Component {
     constructor(props) {
@@ -9,10 +9,17 @@ class App extends React.Component {
             quote: "It isn't where you came from. It's where you're going that counts.",
             author: "Ella Fitzgerald"
         }
+        this.newQuoteClicked = this.newQuoteClicked.bind(this);
     }
 
     newQuoteClicked() {
-        console.log(quote.getRandomQuote());
+        const newQuoteFull = newQuote.getRandomQuote().split(' ~ ');
+        const newQuoteText = newQuoteFull[0];
+        const newQuoteAuthor = newQuoteFull[1];
+        this.setState({
+            quote: newQuoteText,
+            author: newQuoteAuthor
+        });
     }
 
     render() {
@@ -21,7 +28,7 @@ class App extends React.Component {
                 <h1>Take a Dose of Inspiration</h1>
                 <div>
                     <div>
-                        <p id="text">{this.state.quote}</p>
+                        <p id="text"><span>"</span>{this.state.quote}<span>"</span></p>
                     </div>
                 </div>
                 <p id="author">{this.state.author}</p>
