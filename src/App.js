@@ -1,6 +1,9 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
 const newQuote = require('super-random-quotes/app');
 const getColorPair = require("random-color-pair");
+
 
 class App extends React.Component {
     constructor(props) {
@@ -46,17 +49,23 @@ class App extends React.Component {
         return (
             <div id="quote-box" style={backgroundElement}>
                 <h1 style={foregroundElement}>Take a Dose of Inspiration</h1>
-                <div>
+                <div style={{width: '100%'}}>
                     <div className="quote-block">
                         <span style={foregroundElement} className='startQuotation'>"</span><p style={foregroundElement} id="text">{this.state.quote}</p><span style={foregroundElement} className='endQuotation'>"</span>
                     </div>
                 </div>
-                <p style={foregroundElement} id="author">~ {this.state.author}</p>
-                <div>
-                    <div>
-                        <a style={foregroundElement} id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">Tweet</a>
+                <div className="author-block">
+                    <div className="button-div">
+                        <div>
+                            <a style={foregroundElement} id="tweet-quote"  class="twitter-share-button" href="http://twitter.com/intent/tweet" target="_blank"><FontAwesomeIcon icon={faTwitterSquare} /></a>
+                        </div>
+                        <a href="#" style={{textDecoration: "none"}}>
+                            <div onClick={this.newQuoteClicked} style={foregroundElement} id="new-quote">New Quote</div>
+                        </a>
                     </div>
-                    <div onClick={this.newQuoteClicked} style={foregroundElement} id="new-quote">New Quote</div>
+                    <p style={foregroundElement} id="author">~ {this.state.author}</p>
+                </div>
+                <div>
                 </div>
             </div>
         );

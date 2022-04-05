@@ -11,18 +11,61 @@ body {
 }
 
 h1 {
-    font-size: 70px;
+    font-size: 64px;
+    font-family: 'Old Standard TT', serif;
+    text-align: center;
+    padding-top: 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-bottom: 2%;
 }
 .quote-block {
+    width: 80%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
 }
 .startQuotation {
     align-self: flex-start;
+    font-size: 60.0px;
 }
 #text {
     align-self: center;
+    font-size: 40.0px;
 }
 .endQuotation {
+    margin-top: 25%;
     align-self: flex-end;
+    font-size: 60.0px;
+}
+.startQuotation, #text, .endQuotation {
+    text-align: center;
+    font-family: 'Courgette', cursive;
+}
+.author-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 30.0px;
+}
+.button-div {
+    width: 22%;
+    margin-left: 18%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#new-quote {
+    font-family: 'Old Standard TT', serif;
+    text-decoration: none;
+    margin-left: 30.0px;
+}
+#author {
+    font-family: 'Old Standard TT', serif;
+    width: 40%;
+    text-align: end;
+    margin-right: 18%;
 }
