@@ -57,7 +57,7 @@ class App extends React.Component {
                 <div className="author-block">
                     <div className="button-div">
                         <div>
-                            <a style={foregroundElement} id="tweet-quote"  class="twitter-share-button" href="http://twitter.com/intent/tweet" target="_blank"><FontAwesomeIcon icon={faTwitterSquare} /></a>
+                            <a style={foregroundElement} id="tweet-quote" href="http://twitter.com/intent/tweet" target="_blank"><FontAwesomeIcon icon={faTwitterSquare} /></a>
                         </div>
                         <a href="#" style={{textDecoration: "none"}}>
                             <div onClick={this.newQuoteClicked} style={foregroundElement} id="new-quote">New Quote</div>
